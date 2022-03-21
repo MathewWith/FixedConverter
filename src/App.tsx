@@ -1,17 +1,21 @@
 import React, { useEffect, useState } from 'react';
 import './App.scss';
-import { getAllCurrencies } from './helpers/getAllCurrencies';
+import { getAllCurrencies } from './service/getAllCurrencies';
 
 function App() {
-  const [allCurrencies, setAllCurrencies] = useState([])
+  const [allCurrencies, setAllCurrencies] = useState([''])
 
   useEffect(() => {
-    getAllCurrencies(setAllCurrencies)
+    const res = async () => {
+      const data = await getAllCurrencies()
+      setAllCurrencies(data)
+    }
+    res()
   }, [])
 
   return (
     <div className="App">
-      
+        {String(allCurrencies)}
     </div>
   );
 }
