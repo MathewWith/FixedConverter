@@ -5,7 +5,7 @@ export const Select= (props: any) => {
     return (
         <select onChange={(e) => setCurrency(e.target.value)}>
                 {
-                    allCurrencies.map((cur: any) => {
+                    allCurrencies.map((cur: string) => {
                        return <option key={cur}>{cur}</option>
                     })
                 }
