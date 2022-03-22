@@ -11,11 +11,11 @@ function App() {
   const [isReversed, setIsReversed] = useState(false)
 
   useEffect(() => {
-    const res = async () => {
-      const data = await getAllCurrencies()
-      setAllCurrencies(data)
+    const getArrayCurrencies = async () => {
+      const arrayCurrencies = await getAllCurrencies()
+      setAllCurrencies(arrayCurrencies)
     }
-    res()
+    getArrayCurrencies()
   }, [])
 
   return (

@@ -1,9 +1,9 @@
 import axios from 'axios'
 
-export const getAllCurrencies = async () => {
+export const getAllCurrencies = async (): Promise<string[]> => {
     return await axios.get('https://openexchangerates.org/api/currencies.json')
-    .then(function (data){
-        let arr = Object.keys(data.data)
-        return arr
+    .then((data) => {
+        let arrayCurrencies = Object.keys(data.data)
+        return arrayCurrencies
     })
 }
