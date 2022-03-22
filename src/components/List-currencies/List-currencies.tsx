@@ -2,7 +2,7 @@ import {useState} from "react"
 import { Select } from "../Select/Select"
 
 export const ListCurrencies: any = ({allCurrencies}: {allCurrencies: string[]}) => {
-    
+
     const [currencyLeft, setCurrencyLeft] = useState(allCurrencies[0])
     const [currencyRight, setCurrencyRight] = useState(allCurrencies[0])
 

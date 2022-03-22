@@ -5,7 +5,11 @@ import { ListCurrencies } from 'src/components/List-currencies/List-currencies';
 
 
 function App() {
+  
   const [allCurrencies, setAllCurrencies] = useState([''])
+  const [leftInputValue, setLeftInputValue] = useState('')
+  const [rightInputValue, setRightInputValue] = useState('')
+  const [isReversed, setIsReversed] = useState(false)
 
   useEffect(() => {
     const getArrayCurrencies = async () => {
@@ -18,7 +22,12 @@ function App() {
   return (
     <div className="App">
       <h1>Change money</h1>
-      <ListCurrencies allCurrencies={allCurrencies} />
+
+      {ListCurrencies(allCurrencies)}
+      <div>
+          <input type="text" onClick={() => setIsReversed(prev => !prev)} onChange={(e) => setLeftInputValue(e.target.value)}/>
+          <input type="text" onClick={() => setIsReversed(prev => !prev)} onChange={(e) => setRightInputValue(e.target.value)}/>
+      </div>
     </div>
   );
 }

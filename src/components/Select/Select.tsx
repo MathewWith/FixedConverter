@@ -1,7 +1,7 @@
 
 export const Select = (props: any) => {
-    const {allCurrencies} = props
-    const {setCurrency} = props                       
+    const {allCurrencies} = props;
+    const {setCurrency} = props; 
     return (
         <select onChange={(e) => setCurrency(e.target.value)}>
                 {
