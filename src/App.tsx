@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import './App.scss';
 import { getAllCurrencies } from 'src/service/getAllCurrencies';
+import { ListCurrencies } from 'src/components/List-currencies/List-currencies';
+
 
 function App() {
   const [allCurrencies, setAllCurrencies] = useState([''])
@@ -15,7 +17,8 @@ function App() {
 
   return (
     <div className="App">
-         <h1>Change money</h1>
+      <h1>Change money</h1>
+      <ListCurrencies allCurrencies={allCurrencies} />
     </div>
   );
 }
