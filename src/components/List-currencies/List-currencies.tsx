@@ -1,10 +1,24 @@
-import {useState} from "react"
+import {useEffect, useState} from "react"
+import { reverseCurrencies } from "src/helpers/reverse-currency";
+import { setConvertedValue } from "src/helpers/set-converted-value";
 import { Select } from "../Select/Select"
 
-export const ListCurrencies: any = ({allCurrencies}: {allCurrencies: string[]}) => {
+export const ListCurrencies: any = (props: any) => {
+    const {allCurrencies, leftInputValue, rightInputValue, isReversed, setLeftInputValue, setRightInputValue} = props;
+    console.log(allCurrencies);
+    
+    useEffect(() => {
+        if(!isReversed) {
+            reverseCurrencies(currencyLeft, currencyRight, setCurrencyLeft, setCurrencyRight)
+        }
+        
+        isReversed 
+        ? setConvertedValue(currencyLeft, currencyRight, leftInputValue, setLeftInputValue) 
+        : setConvertedValue(currencyLeft, currencyRight, rightInputValue, setRightInputValue)
+    }, [leftInputValue, rightInputValue])
 
-    const [currencyLeft, setCurrencyLeft] = useState(allCurrencies[0])
-    const [currencyRight, setCurrencyRight] = useState(allCurrencies[0])
+    const [currencyLeft, setCurrencyLeft] = useState('')
+    const [currencyRight, setCurrencyRight] = useState('')
 
     return (
         <div className="list-currencies">

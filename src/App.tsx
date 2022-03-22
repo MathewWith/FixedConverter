@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import './App.scss';
-import { getAllCurrencies } from 'src/service/getAllCurrencies';
+import { getAllCurrencies } from 'src/service/api/get-all-currencies';
 import { ListCurrencies } from 'src/components/List-currencies/List-currencies';
 
 
@@ -16,6 +16,8 @@ function App() {
       const arrayCurrencies = await getAllCurrencies()
       setAllCurrencies(arrayCurrencies)
     }
+    console.log('help');
+    
     getArrayCurrencies()
   }, [])
 
@@ -23,10 +25,10 @@ function App() {
     <div className="App">
       <h1>Change money</h1>
 
-      {ListCurrencies(allCurrencies)}
+      {ListCurrencies(allCurrencies, leftInputValue, rightInputValue, isReversed, setLeftInputValue, setRightInputValue)}
       <div>
-          <input type="text" onClick={() => setIsReversed(prev => !prev)} onChange={(e) => setLeftInputValue(e.target.value)}/>
-          <input type="text" onClick={() => setIsReversed(prev => !prev)} onChange={(e) => setRightInputValue(e.target.value)}/>
+          <input type="text" onClick={() => setIsReversed(true)} onChange={(e) => setLeftInputValue(e.target.value)}/>
+          <input type="text" onClick={() => setIsReversed(false)} onChange={(e) => setRightInputValue(e.target.value)}/>
       </div>
     </div>
   );
