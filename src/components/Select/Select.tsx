@@ -1,5 +1,5 @@
 
-export const Select= (props: any) => {
+export const Select = (props: any) => {
     const {allCurrencies} = props
     const {setCurrency} = props                       
     return (
