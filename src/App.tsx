@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React , {useState, useEffect} from 'react';
 import './App.scss';
 import { getAllCurrencies } from 'src/service/api/get-all-currencies';
 import { ListCurrencies } from 'src/components/List-currencies/List-currencies';
@@ -16,11 +16,9 @@ function App() {
       const arrayCurrencies = await getAllCurrencies()
       setAllCurrencies(arrayCurrencies)
     }
-    console.log('help');
-    
     getArrayCurrencies()
   }, [])
-
+  
   return (
     <div className="App">
       <h1>Change money</h1>

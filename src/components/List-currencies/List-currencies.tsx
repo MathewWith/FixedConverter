@@ -5,7 +5,6 @@ import { Select } from "../Select/Select"
 
 export const ListCurrencies: any = (props: any) => {
     const {allCurrencies, leftInputValue, rightInputValue, isReversed, setLeftInputValue, setRightInputValue} = props;
-    console.log(allCurrencies);
     
     useEffect(() => {
         if(!isReversed) {
