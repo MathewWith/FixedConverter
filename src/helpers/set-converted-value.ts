@@ -1,9 +1,22 @@
-import { getConvertedValue } from "src/service/api/get-converted-value"
+import { getConvertedValue } from "src/service/api/requests-to-api"
 
-export const setConvertedValue = async (  currencyLeft: string, 
+export const setConvertedValue = (  
+                                    isReversed: boolean,
+                                    currencyLeft: string, 
                                     currencyRight: string, 
-                                    inputValue: number, 
-                                    setInputValue: any): Promise<any> => {
-    const convertedValue = await getConvertedValue(currencyLeft, currencyRight, inputValue)
-    setInputValue(convertedValue)
+                                    leftInputValue: string,
+                                    rightInputValue: string,
+                                    setLeftInputValue: any,
+                                    setRightInputValue: any
+                                    ): void => {
+                                    
+    const setInputValue = async () => {
+        let res;
+        isReversed  ? res = await getConvertedValue(currencyLeft, currencyRight, leftInputValue) 
+                    : res = await getConvertedValue(currencyLeft, currencyRight, rightInputValue )
+
+        isReversed ? setLeftInputValue(res) : setRightInputValue(res)
+    }
+    
+    setInputValue()
 }
