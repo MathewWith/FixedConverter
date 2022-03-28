@@ -14,7 +14,7 @@ export const setConvertedValue = (
         let res;
         isReversed  ? res = await getConvertedValue(currencyLeft, currencyRight, leftInputValue) 
                     : res = await getConvertedValue(currencyLeft, currencyRight, rightInputValue )
-
+        
         isReversed ? setLeftInputValue(res) : setRightInputValue(res)
     }
     

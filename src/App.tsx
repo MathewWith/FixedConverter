@@ -13,8 +13,8 @@ function App() {
 
   useEffect(() => {
     const getArrayCurrencies = async () => {
-      const arrayCurrencies = await getAllCurrencies()
-      setAllCurrencies(arrayCurrencies)
+      const boxForArrayCurrencies = await getAllCurrencies()
+      setAllCurrencies(boxForArrayCurrencies)
     }
     
     getArrayCurrencies()
@@ -40,6 +40,11 @@ function App() {
                   onChange={(e) => setRightInputValue(e.target.value)} 
                   value={rightInputValue}/>
       </div>
+      <button onClick={() => {
+          setIsReversed(prev => !prev)
+          isReversed ?  setRightInputValue(leftInputValue) : setLeftInputValue(rightInputValue)
+        }}>Reverse</button>
+        
     </div>
   );
 }
