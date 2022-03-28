@@ -2,6 +2,7 @@ import {useState, useEffect} from 'react';
 import './App.scss';
 import { getAllCurrencies } from 'src/service/api/requests-to-api';
 import { ListCurrencies } from 'src/components/List-currencies/List-currencies';
+import {reverseButton} from './helpers/reverse-bbutton';
 
 
 function App() {
@@ -40,10 +41,16 @@ function App() {
                   onChange={(e) => setRightInputValue(e.target.value)} 
                   value={rightInputValue}/>
       </div>
-      <button onClick={() => {
-          setIsReversed(prev => !prev)
-          isReversed ?  setRightInputValue(leftInputValue) : setLeftInputValue(rightInputValue)
-        }}>Reverse</button>
+      <button 
+        onClick={() => 
+          reverseButton({ isReversed, 
+                          setRightInputValue, 
+                          setIsReversed, 
+                          setLeftInputValue, 
+                          leftInputValue, 
+                          rightInputValue })
+        }
+      >Reverse</button>
         
     </div>
   );

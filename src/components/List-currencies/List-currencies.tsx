@@ -10,7 +10,7 @@ export const ListCurrencies = (props: ListCurrenciesType) => {
     
     useEffect(() => {
         setConvertedValue(isReversed ,currencyLeft, currencyRight, leftInputValue, rightInputValue, setRightInputValue, setLeftInputValue) 
-    }, [leftInputValue, rightInputValue, isReversed])
+    }, [leftInputValue, rightInputValue])
 
     useEffect(() => {
         reverseCurrencies(isReversed, currencyLeft, currencyRight, setCurrencyLeft, setCurrencyRight)

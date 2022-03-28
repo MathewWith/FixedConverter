@@ -3,6 +3,6 @@ export interface ListCurrenciesType {
     leftInputValue: string,
     rightInputValue: string,
     isReversed: boolean,
-    setLeftInputValue: any,
-    setRightInputValue: any
+    setLeftInputValue: React.Dispatch<React.SetStateAction<string>>,
+    setRightInputValue: React.Dispatch<React.SetStateAction<string>>
 }
