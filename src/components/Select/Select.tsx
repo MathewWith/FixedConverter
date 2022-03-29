@@ -1,12 +1,17 @@
+import React from "react";
 
-export const Select = (props: any) => {
-    const {allCurrencies} = props;
-    const {setCurrency} = props; 
+interface SelectProps {
+    allCurrencies: string[] ,
+    setCurrency: React.Dispatch<React.SetStateAction<string>>
+}
+
+export const Select = (props: SelectProps) => {
+    const {allCurrencies, setCurrency} = props;
     return (
         <select onChange={(e) => setCurrency(e.target.value)}>
                 {
-                    allCurrencies.map((cur: string) => {
-                       return <option key={cur}>{cur}</option>
+                    allCurrencies.map((currency: string) => {
+                       return <option key={currency}>{currency}</option>
                     })
                 }
         </select>
