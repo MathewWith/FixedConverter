@@ -13,12 +13,12 @@ function App() {
   const [isReversed, setIsReversed] = useState<boolean>(false)
 
   useEffect(() => {
-    const getArrayCurrencies = async () => {
-      const boxForArrayCurrencies = await getAllCurrencies()
-      setAllCurrencies(boxForArrayCurrencies)
+    const getCurrencies = async () => {
+      const currencies = await getAllCurrencies()
+      setAllCurrencies(currencies)
     }
     
-    getArrayCurrencies()
+    getCurrencies()
   }, [])
   
   return (

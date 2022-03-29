@@ -6,14 +6,33 @@ import { Select } from "../Select/Select"
 
 export const ListCurrencies = (props: ListCurrenciesType) => {
     
-    const {allCurrencies, leftInputValue, rightInputValue, isReversed, setLeftInputValue, setRightInputValue} = props;
+    const { allCurrencies, 
+            leftInputValue, 
+            rightInputValue, 
+            isReversed, 
+            setLeftInputValue, 
+            setRightInputValue} = props;
     
     useEffect(() => {
-        setConvertedValue(isReversed ,currencyLeft, currencyRight, leftInputValue, rightInputValue, setRightInputValue, setLeftInputValue) 
+        setConvertedValue(
+            isReversed ,
+            currencyLeft, 
+            currencyRight, 
+            leftInputValue, 
+            rightInputValue, 
+            setRightInputValue, 
+            setLeftInputValue) 
+            const result = getConvertedValue(currencyLeft, currencyRight, leftInputValue)
+            const result = getConvertedValue(currencyRight, currencyLeft, rightInputValue)
     }, [leftInputValue, rightInputValue])
 
     useEffect(() => {
-        reverseCurrencies(isReversed, currencyLeft, currencyRight, setCurrencyLeft, setCurrencyRight)
+        reverseCurrencies(
+            isReversed, 
+            currencyLeft, 
+            currencyRight, 
+            setCurrencyLeft, 
+            setCurrencyRight)
     }, [isReversed])
 
     const [currencyLeft, setCurrencyLeft] = useState('')
