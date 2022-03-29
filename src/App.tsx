@@ -1,44 +1,53 @@
-import {useState, useEffect} from 'react';
+import React, { useEffect, useState , FC} from 'react';
 import './App.scss';
-import { getAllCurrencies } from 'src/service/api/requests-to-api';
-import { ListCurrencies } from 'src/components/List-currencies/List-currencies';
+import { getAllCurrencies, getConvertedValue } from 'src/service/CurrencyService';
+import { ListCurrencies } from 'src/components/ListCurrencies/ListCurrencies';
 
 
 function App() {
   
-  const [allCurrencies, setAllCurrencies] = useState<string[]>([])
-  const [leftInputValue, setLeftInputValue] = useState<string>('')
-  const [rightInputValue, setRightInputValue] = useState<string>('')
+  const [allCurrencies, setAllCurrencies] = useState<string[]>([''])
+  const [leftInputValue, setLeftInputValue] = useState<string|number>('')
+  const [rightInputValue, setRightInputValue] = useState<string|number>('')
   const [isReversed, setIsReversed] = useState<boolean>(false)
+  const [inputCurrency, setInputCurrency] = useState('')
+  const [outputCurrency, setOutputCurrency] = useState('')
 
   useEffect(() => {
-    const getArrayCurrencies = async () => {
-      const arrayCurrencies = await getAllCurrencies()
-      setAllCurrencies(arrayCurrencies)
+    const getCurrencies = async () => {
+      const currencies = await getAllCurrencies()
+      setAllCurrencies(currencies)
     }
-    
-    getArrayCurrencies()
+    getCurrencies()
   }, [])
-  
+
+  useEffect(() => {
+    const setConvertedValue = async () => {
+      const response = await getConvertedValue(inputCurrency, outputCurrency, leftInputValue)
+      setRightInputValue(response)
+    }
+    setConvertedValue()
+  }, [leftInputValue])
+
+  useEffect(() => {
+    const setConvertedValue = async () => {
+      const response = await getConvertedValue(outputCurrency, inputCurrency, rightInputValue)
+      setLeftInputValue(response)
+    }
+    setConvertedValue()
+  }, [rightInputValue])
+
   return (
     <div className="App">
       <h1>Change money</h1>
 
-      <ListCurrencies allCurrencies={allCurrencies} 
-                      leftInputValue={leftInputValue} 
-                      rightInputValue={rightInputValue} 
-                      isReversed={isReversed} 
-                      setLeftInputValue={setLeftInputValue} 
-                      setRightInputValue={setRightInputValue} />
+      <ListCurrencies 
+        allCurrencies={allCurrencies} 
+        setInputCurrency={setInputCurrency} 
+        setOutputCurrency={setOutputCurrency}/>
       <div>
-          <input  type="text" 
-                  onClick={() => setIsReversed(true)} 
-                  onChange={(e) => setLeftInputValue(e.target.value)} 
-                  value={leftInputValue}/>
-          <input  type="text" 
-                  onClick={() => setIsReversed(false)} 
-                  onChange={(e) => setRightInputValue(e.target.value)} 
-                  value={rightInputValue}/>
+          <input type="text" onClick={() => setIsReversed(prev => !prev)} onChange={(e) => setLeftInputValue(e.target.value)}/>
+          <input type="text" onClick={() => setIsReversed(prev => !prev)} onChange={(e) => setRightInputValue(e.target.value)}/>
       </div>
     </div>
   );
