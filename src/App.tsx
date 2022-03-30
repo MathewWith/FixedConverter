@@ -1,7 +1,7 @@
 import React, { useEffect, useState , FC} from 'react';
 import './App.scss';
-import { getAllCurrencies } from 'src/service/currency';
-import { ListCurrencies } from 'src/components/List-currencies/List-currencies';
+import { getAllCurrencies } from 'src/service/CurrencyService';
+import { ListCurrencies } from 'src/components/ListCurrencies/ListCurrencies';
 
 
 function App() {
