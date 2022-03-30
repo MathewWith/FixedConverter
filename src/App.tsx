@@ -23,7 +23,7 @@ function App() {
     <div className="App">
       <h1>Change money</h1>
 
-      {<ListCurrencies allCurrencies={allCurrencies} />}
+      <ListCurrencies allCurrencies={allCurrencies} />
       <div>
           <input type="text" onClick={() => setIsReversed(prev => !prev)} onChange={(e) => setLeftInputValue(e.target.value)}/>
           <input type="text" onClick={() => setIsReversed(prev => !prev)} onChange={(e) => setRightInputValue(e.target.value)}/>
