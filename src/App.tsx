@@ -43,8 +43,8 @@ function App() {
 
       <ListCurrencies 
         allCurrencies={allCurrencies} 
-        setInputCurrency={setLeftCurrency} 
-        setOutputCurrency={setRightCurrency}/>
+        setLeftCurrency={setLeftCurrency} 
+        setRightCurrency={setRightCurrency}/>
       <div>
           <input type="text" onClick={() => setIsReversed(prev => !prev)} onChange={(e) => setLeftInputValue(e.target.value)}/>
           <input type="text" onClick={() => setIsReversed(prev => !prev)} onChange={(e) => setRightInputValue(e.target.value)}/>

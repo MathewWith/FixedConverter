@@ -1,7 +1,6 @@
 import axios from "axios"
 import {API_KEY} from "src/shared/consts/api-key"
 
-
 export const getConvertedValue = async (
             inputCurrency: string, 
             outputCurrency: string, 

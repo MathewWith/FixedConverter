@@ -1,14 +1,18 @@
-import {useEffect, useState} from "react"
-import { ListCurrenciesTypes } from "src/types/ListCurrenciesTypes";
+import React, {useState} from "react"
 import { Select } from "../Select/Select"
 
-export const ListCurrencies = (props: ListCurrenciesTypes) => {
-    const {allCurrencies, setInputCurrency, setOutputCurrency} = props;
+interface IListCurrencies {
+    allCurrencies: string[],
+    setLeftCurrency: React.Dispatch<React.SetStateAction<string>>,
+    setRightCurrency: React.Dispatch<React.SetStateAction<string>>
+}
 
+export const ListCurrencies = (props: IListCurrencies ) => {
+    const {allCurrencies, setLeftCurrency, setRightCurrency} = props 
     return (
         <div className="list-currencies">
-            <Select allCurrencies={allCurrencies} setCurrency={setOutputCurrency}/>
-            <Select allCurrencies={allCurrencies} setCurrency={setInputCurrency}/>
+            <Select allCurrencies={allCurrencies} setCurrency={setLeftCurrency}/>
+            <Select allCurrencies={allCurrencies} setCurrency={setRightCurrency}/>
         </div>
     )
 }
