@@ -1,7 +1,10 @@
 import React from "react";
 
-export interface ListCurrenciesTypes {
+export interface IListCurrencies {
     allCurrencies: string[],
-    setInputCurrency: React.Dispatch<React.SetStateAction<string>>,
-    setOutputCurrency: React.Dispatch<React.SetStateAction<string>>
+    setLeftCurrency: React.Dispatch<React.SetStateAction<string>>,
+    setRightCurrency: React.Dispatch<React.SetStateAction<string>>,
+    leftCurrency: string,
+    rightCurrency: string
+
 }

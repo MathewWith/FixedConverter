@@ -1,6 +1,13 @@
 import axios from "axios"
 import {API_KEY} from "src/shared/consts/api-key"
 
+export const getLatestPrice = async (leftCurrency: string, rightCurrency: string) => {
+    let response = await axios.get(`https://fcsapi.com/api-v3/forex/latest?symbol=${leftCurrency}/${rightCurrency}&access_key=W5ndOKH68FvIDvLZJR4FQXs`)
+    console.log(response.data.response[0].ch);
+    
+    return response.data.response.ch
+}
+
 
 
 export const getConvertedValue = async (

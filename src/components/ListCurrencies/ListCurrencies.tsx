@@ -1,14 +1,8 @@
 import React, {useState} from "react"
+import { IListCurrencies } from "src/types/ListCurrenciesTypes"
 import { Select } from "../Select/Select"
+import './ListCurrencies.scss'
 
-interface IListCurrencies {
-    allCurrencies: string[],
-    setLeftCurrency: React.Dispatch<React.SetStateAction<string>>,
-    setRightCurrency: React.Dispatch<React.SetStateAction<string>>,
-    leftCurrency: string,
-    rightCurrency: string
-
-}
 
 export const ListCurrencies = (props: IListCurrencies ) => {
     const {allCurrencies, setLeftCurrency, setRightCurrency, leftCurrency, rightCurrency} = props 
