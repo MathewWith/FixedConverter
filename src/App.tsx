@@ -10,8 +10,8 @@ function App() {
   const [leftInputValue, setLeftInputValue] = useState<string|number>('')
   const [rightInputValue, setRightInputValue] = useState<string|number>('')
   const [isReversed, setIsReversed] = useState<boolean>(false)
-  const [leftCurrency, setLeftCurrency] = useState<string>('')
-  const [rightCurrency, setRightCurrency] = useState<string>('')
+  const [leftCurrency, setLeftCurrency] = useState<string>(allCurrencies[0])
+  const [rightCurrency, setRightCurrency] = useState<string>(allCurrencies[0])
 
   useEffect(() => {
     const getCurrencies = async () => {
@@ -44,7 +44,9 @@ function App() {
       <ListCurrencies 
         allCurrencies={allCurrencies} 
         setLeftCurrency={setLeftCurrency} 
-        setRightCurrency={setRightCurrency}/>
+        setRightCurrency={setRightCurrency}
+        leftCurrency={leftCurrency}
+        rightCurrency={rightCurrency}/>
       <div>
           <input type="text" onClick={() => setIsReversed(prev => !prev)} onChange={(e) => setLeftInputValue(e.target.value)}/>
           <input type="text" onClick={() => setIsReversed(prev => !prev)} onChange={(e) => setRightInputValue(e.target.value)}/>
