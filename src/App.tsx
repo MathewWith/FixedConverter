@@ -14,7 +14,7 @@ function App() {
   const [leftCurrency, setLeftCurrency] = useState<string>(allCurrencies[0])
   const [rightCurrency, setRightCurrency] = useState<string>(allCurrencies[0])
   const [exchangeRate, setExchangeRate] = useState<string|number>('')
-  const [currenciesSymbols, setCurrenciesSymbols] = useState([])
+  const [currenciesSymbols, setCurrenciesSymbols] = useState<string[]>([])
 
   useEffect(() => {
     const setSymbols = async () => {
