@@ -1,10 +1,10 @@
-import { SelectProps } from "src/types/SelectTypes";
+import { SelectProps } from "src/types/types";
 import './Select.scss'
 
 export const Select = (props: SelectProps) => {
-    const {allCurrencies, setCurrency, pickCurrency} = props;
+    const {allCurrencies, setCurrency, currentCurrency} = props;
     return (
-        <select onChange={(e) => setCurrency(e.target.value)} value={pickCurrency} className='select-wrap'>
+        <select onChange={(e) => setCurrency(e.target.value)} value={currentCurrency} className='wrapper'>
                 {
                     allCurrencies.map((currency: string, key: number) => {
                        return <option key={key} >{currency}</option>

@@ -1,9 +1,9 @@
 .container {
   text-align: center;
-  .container-title {
+  .container__title {
     font-size: 100;
   }
-  .container-inputs {
+  .container__inputs {
     display: flex;
     justify-content: space-between;
     padding: 3% 30%;
@@ -17,13 +17,22 @@
       font-weight: 100;
     }
   }
-  .container-btn {
-    width: 23%;
-    border-radius: 15px;
-    box-shadow: none;
-    background-color: rgb(236, 9, 141);
-    color: white;
-    border: 0;
-    padding: 10px 5px;
+  .container__wrapper {
+    display: flex;
+    justify-content: space-between;
+    padding: 0% 30%;
+    .container__btn {
+      width: 40%;
+      border-radius: 15px;
+      box-shadow: none;
+      background-color: rgb(236, 9, 141);
+      color: white;
+      border: 0;
+      padding: 10px 5px;
+    }
+    .container__exchange-rate {
+      font-size: 30px;
+      color: rgb(3, 184, 3);
+    }
   }
 }
