@@ -8,13 +8,22 @@
     justify-content: space-between;
     padding: 3% 30%;
     height: 17%;
-    input {
+    .container__inputs-wrapper {
+      display: flex;
       width: 40%;
-      font-size: 40px;
-      border: none;
-      outline: none;
-      border-bottom: 1px solid silver;
-      font-weight: 100;
+      input {
+        width: 100%;
+        font-size: 40px;
+        border: none;
+        outline: none;
+        border-bottom: 1px solid silver;
+        font-weight: 100;
+      }
+      .container__span {
+        padding: 5px 0 0 0;
+        border-bottom: 1px solid silver;
+        font-size: 30px;
+      }
     }
   }
   .container__wrapper {

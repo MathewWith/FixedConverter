@@ -1,4 +1,18 @@
 
+export interface Symbol {
+    currency?: string,
+    abbreviation?: string,
+    symbol?: string
+}
+
+export interface addSymbolToInputTypes {
+    leftCurrency: string,
+    rightCurrency: string,
+    allCurrenciesSymbols: string[],
+    setLeftSymbol: React.Dispatch<React.SetStateAction<string>>,
+    setRightSymbol: React.Dispatch<React.SetStateAction<string>>
+}
+
 export interface ReverseButton {
     leftCurrency: string,
     rightCurrency: string,
