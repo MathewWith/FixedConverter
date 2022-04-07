@@ -1,4 +1,4 @@
-import React, { useEffect, useState , FC} from 'react';
+import React, { useEffect, useState } from 'react';
 import './App.scss';
 import { getAllCurrencies, getConvertedValue } from 'src/service/CurrencyService';
 import { ListCurrencies } from 'src/components/ListCurrencies/ListCurrencies';
@@ -6,12 +6,12 @@ import { ListCurrencies } from 'src/components/ListCurrencies/ListCurrencies';
 
 function App() {
   
-  const [allCurrencies, setAllCurrencies] = useState<string[]>([''])
-  const [leftInputValue, setLeftInputValue] = useState<string|number>('')
-  const [rightInputValue, setRightInputValue] = useState<string|number>('')
+  const [allCurrencies, setAllCurrencies] = useState<string[]>([])
+  const [leftInputValue, setLeftInputValue] = useState<number>(0)
+  const [rightInputValue, setRightInputValue] = useState<number>(0)
   const [isReversed, setIsReversed] = useState<boolean>(false)
-  const [leftCurrency, setLeftCurrency] = useState<string>(allCurrencies[0])
-  const [rightCurrency, setRightCurrency] = useState<string>(allCurrencies[0])
+  const [leftCurrency, setLeftCurrency] = useState<string>('')
+  const [rightCurrency, setRightCurrency] = useState<string>('')
 
   useEffect(() => {
     const getCurrencies = async () => {
@@ -41,18 +41,31 @@ function App() {
     <div className="App">
       <h1>Change money</h1>
 
-      <ListCurrencies 
-        allCurrencies={allCurrencies} 
+      <ListCurrencies allCurrencies={allCurrencies} 
         setLeftCurrency={setLeftCurrency} 
         setRightCurrency={setRightCurrency}
         leftCurrency={leftCurrency}
-        rightCurrency={rightCurrency}/>
+        rightCurrency={rightCurrency}
+        />
       <div>
-          <input type="text" onClick={() => setIsReversed(prev => !prev)} onChange={(e) => setLeftInputValue(e.target.value)}/>
-          <input type="text" onClick={() => setIsReversed(prev => !prev)} onChange={(e) => setRightInputValue(e.target.value)}/>
+          <input 
+              type="text" 
+              onClick={() => setIsReversed(prev => !prev)} 
+              onChange={(e) => setLeftInputValue(+e.target.value)}/>
+          <input 
+              type="text" 
+              onClick={() => setIsReversed(prev => !prev)} 
+              onChange={(e) => setRightInputValue(+e.target.value)}/>
       </div>
     </div>
   );
 }
 
 export default App;
+
+
+
+
+
+
+
