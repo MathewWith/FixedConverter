@@ -1,14 +1,14 @@
 .container {
   text-align: center;
-  .container__title {
+  &__title {
     font-size: 100;
   }
-  .container__inputs {
+  &__inputs {
     display: flex;
     justify-content: space-between;
     padding: 3% 30%;
     height: 17%;
-    input {
+    &__input {
       width: 40%;
       font-size: 40px;
       border: none;
@@ -17,11 +17,11 @@
       font-weight: 100;
     }
   }
-  .container__wrapper {
+  &__content {
     display: flex;
     justify-content: space-between;
     padding: 0% 30%;
-    .container__btn {
+    &__content--btn {
       width: 40%;
       border-radius: 15px;
       box-shadow: none;
@@ -30,7 +30,7 @@
       border: 0;
       padding: 10px 5px;
     }
-    .container__exchange-rate {
+    &__content--rate {
       font-size: 30px;
       color: rgb(3, 184, 3);
     }

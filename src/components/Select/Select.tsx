@@ -1,4 +1,4 @@
-import { SelectProps } from "src/types/types";
+import { SelectProps } from "src/types/FunctionProps";
 import './Select.scss'
 
 export const Select = (props: SelectProps) => {
@@ -13,5 +13,3 @@ export const Select = (props: SelectProps) => {
         </select>
     )
 }
-
-//посмотреть как работает селект

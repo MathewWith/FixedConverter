@@ -1,7 +1,7 @@
-import { ReverseButton } from "src/types/types";
+import { ReverseButtonProps } from "src/types/service";
 
 
-export const reverseButton = (props: ReverseButton): void => {
+export const reverseButton = (props: ReverseButtonProps): void => {
     const { leftCurrency, 
             rightCurrency,
             setLeftCurrency,

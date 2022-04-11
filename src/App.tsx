@@ -69,19 +69,21 @@ function App() {
         leftCurrency={leftCurrency}
         rightCurrency={rightCurrency}/>
       <div className='container__inputs'>
-          <input type="text" 
+          <input type='text'
+                 className='container__input' 
                  onClick={() => setIsReversed(true)} 
                  onChange={(e) => setLeftInputValue(e.target.value)}
                  value={leftInputValue}
           />
-          <input type="text" 
+          <input type='text'
+                 className='container__input' 
                  onClick={() => setIsReversed(false)} 
                  onChange={(e) => setRightInputValue(e.target.value)}
                  value={rightInputValue}
           />
       </div>
-      <div className='container__wrapper'>
-        <button className='container__btn'
+      <div className='container__content'>
+        <button className='container__content--btn'
           onClick={() => 
             reverseButton({ leftCurrency,
                             rightCurrency,
@@ -90,9 +92,8 @@ function App() {
           }
         >Reverse</button> 
         
-        <div className='container__exchange-rate'>{exchangeRate}</div>
+        <div className='container__content--rate'>{exchangeRate}</div>
       </div>
-      
     </div>
   );
 }

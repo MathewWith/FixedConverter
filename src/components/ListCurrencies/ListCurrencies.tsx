@@ -1,10 +1,10 @@
 import React from "react"
-import { ListCurrenciesTypes } from "src/types/types"
+import { ListCurrenciesProps } from "src/types/FunctionProps"
 import { Select } from "../Select/Select"
 import './ListCurrencies.scss'
 
 
-export const ListCurrencies = (props: ListCurrenciesTypes ) => {
+export const ListCurrencies = (props: ListCurrenciesProps ) => {
     const {allCurrencies, setLeftCurrency, setRightCurrency, leftCurrency, rightCurrency} = props 
     return (
         <div className="list-currencies">

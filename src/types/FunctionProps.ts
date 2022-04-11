@@ -1,5 +1,5 @@
 
-export interface ReverseButton {
+export interface ReverseButtonProps {
     leftCurrency: string,
     rightCurrency: string,
     setLeftCurrency: React.Dispatch<React.SetStateAction<string>>,
@@ -7,7 +7,7 @@ export interface ReverseButton {
 }
 
 
-export interface ListCurrenciesTypes {
+export interface ListCurrenciesProps {
     allCurrencies: string[],
     setLeftCurrency: React.Dispatch<React.SetStateAction<string>>,
     setRightCurrency: React.Dispatch<React.SetStateAction<string>>,
