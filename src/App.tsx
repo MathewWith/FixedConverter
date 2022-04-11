@@ -22,9 +22,7 @@ function App() {
       setCurrenciesSymbols(response)
     }
     setSymbols()
-  }, [])
 
-  useEffect(() => {
     const setCurrencies = async () => {
       const currencies = await getAllCurrencies()
       setAllCurrencies(currencies)
