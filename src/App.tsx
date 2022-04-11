@@ -50,11 +50,11 @@ function App() {
       <div>
           <input 
               type="text" 
-              onClick={() => setIsReversed(prev => !prev)} 
+              onClick={() => setIsReversed(true)} 
               onChange={(e) => setLeftInputValue(+e.target.value)}/>
           <input 
               type="text" 
-              onClick={() => setIsReversed(prev => !prev)} 
+              onClick={() => setIsReversed(false)} 
               onChange={(e) => setRightInputValue(+e.target.value)}/>
       </div>
     </div>

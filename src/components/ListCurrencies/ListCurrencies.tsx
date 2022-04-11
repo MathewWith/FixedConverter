@@ -14,12 +14,12 @@ export const ListCurrencies = ({
       <Select
         allCurrencies={allCurrencies}
         setCurrency={setLeftCurrency}
-        pickCurrency={leftCurrency}
+        currentCurrency={leftCurrency}
       />
       <Select
         allCurrencies={allCurrencies}
         setCurrency={setRightCurrency}
-        pickCurrency={rightCurrency}
+        currentCurrency={rightCurrency}
       />
     </div>
   );

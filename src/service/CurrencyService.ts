@@ -7,8 +7,7 @@ export const getConvertedValue = async (
   inputValue: number
 ): Promise<number> => {
   const response = await axios.get(
-    `https://v6.exchangerate-api.com/v6/${API_KEY}
-        /pair/${inputCurrency}/${outputCurrency}/${inputValue ? inputValue : 0}`
+    `https://v6.exchangerate-api.com/v6/${API_KEY}/pair/${inputCurrency}/${outputCurrency}/${inputValue ? inputValue : 0}`
   );
   return response.data.conversion_result;
 };

@@ -10,5 +10,5 @@ export interface ListCurrenciesProps {
 export interface SelectProps {
     allCurrencies: string[];
     setCurrency: React.Dispatch<React.SetStateAction<string>>;
-    pickCurrency: string;
+    currentCurrency: string;
 }

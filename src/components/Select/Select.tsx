@@ -3,15 +3,15 @@ import { SelectProps } from "src/types/types";
 export const Select = ({
   allCurrencies,
   setCurrency,
-  pickCurrency,
+  currentCurrency
 }: SelectProps) => {
     
   return (
-    <select onChange={(e) => setCurrency(e.target.value)}>
+    <select onChange={(e) => setCurrency(e.target.value)} value={currentCurrency}>
       {allCurrencies.map((currency: string) => {
         return (
           <option key={currency}>
-            {pickCurrency ? pickCurrency : currency}
+            {currency}
           </option>
         );
       })}
