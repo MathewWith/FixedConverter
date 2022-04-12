@@ -4,23 +4,23 @@ import {reverseButton} from './helpers/reverseButton';
 import { getAllCurrencies, getConvertedValue, getCurrenciesSymbols, getExchangeRate } from 'src/service/CurrencyService';
 import { ListCurrencies } from 'src/components/ListCurrencies/ListCurrencies';
 import { addSymbolToInput } from './helpers/addSymbolToInput';
-import {Symbol} from 'src/types/types';
+import {Symbol} from 'src/types/FunctionProps';
 
 function App() {
   
   const [allCurrencies, setAllCurrencies] = useState<string[]>([''])
-  const [leftInputValue, setLeftInputValue] = useState<string|number>('')
-  const [rightInputValue, setRightInputValue] = useState<string|number>('')
+  const [leftInputValue, setLeftInputValue] = useState<number>(0)
+  const [rightInputValue, setRightInputValue] = useState<number>(0)
   const [isReversed, setIsReversed] = useState<boolean>(false)
   const [leftCurrency, setLeftCurrency] = useState<string>('')
   const [rightCurrency, setRightCurrency] = useState<string>('')
   const [exchangeRate, setExchangeRate] = useState<string|number>('')
   const [allCurrenciesSymbols, setAllCurrenciesSymbols] = useState<Symbol[]>([])
-  const [leftSymbol, setLeftSymbol] = useState<string>()
-  const [rightSymbol, setRightSymbol] = useState<string>()
+  const [leftSymbol, setLeftSymbol] = useState<string|undefined>()
+  const [rightSymbol, setRightSymbol] = useState<string|undefined>()
 
   useEffect(() => {
-    addSymbolToInput(leftCurrency, rightCurrency, allCurrenciesSymbols, setLeftSymbol, setRightSymbol)
+    addSymbolToInput({leftCurrency, rightCurrency, allCurrenciesSymbols, setLeftSymbol, setRightSymbol})
   },[allCurrenciesSymbols, leftCurrency, rightCurrency])
 
   useEffect(() => {
@@ -29,9 +29,7 @@ function App() {
       setAllCurrenciesSymbols(response)
     }
     setSymbols()
-  }, [])
 
-  useEffect(() => {
     const setCurrencies = async () => {
       const currencies = await getAllCurrencies()
       setAllCurrencies(currencies)
@@ -78,25 +76,27 @@ function App() {
         leftCurrency={leftCurrency}
         rightCurrency={rightCurrency}/>
       <div className='container__inputs'>
-        <div className='container__inputs-wrapper'>
-          <span className='container__span'>{leftSymbol}</span>
-            <input type="text" 
-                  onClick={() => setIsReversed(true)} 
-                  onChange={(e) => setLeftInputValue(e.target.value)}
-                  value={leftInputValue}
-            />
+        <div className='container__inputs-content'>
+          <div className='container__symbol'>{leftSymbol}</div>
+          <input type="text" 
+                className='container__input' 
+                onClick={() => setIsReversed(true)} 
+                onChange={(e) => setLeftInputValue(+e.target.value)}
+                value={leftInputValue}
+          />
         </div>
-        <div className='container__inputs-wrapper'>
-          <div className='container__span'>{rightSymbol}</div>
+        <div className='container__inputs-content'>
+          <div className='container__symbol'>{rightSymbol}</div>
             <input type="text" 
+                  className='container__input' 
                   onClick={() => setIsReversed(false)} 
-                  onChange={(e) => setRightInputValue(e.target.value)}
+                  onChange={(e) => setRightInputValue(+e.target.value)}
                   value={rightInputValue}
             />
         </div>
       </div>
-      <div className='container__wrapper'>
-        <button className='container__btn'
+      <div className='container__content'>
+        <button className='container__content--btn'
           onClick={() => 
             reverseButton({ leftCurrency,
                             rightCurrency,
@@ -105,7 +105,7 @@ function App() {
           }
         >Reverse</button> 
         
-        <div className='container__exchange-rate'>{exchangeRate}</div>
+        <div className='container__content--rate'>{exchangeRate}</div>
       </div>
     </div>
   );

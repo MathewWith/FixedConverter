@@ -1,36 +1,36 @@
 .container {
   text-align: center;
-  .container__title {
+  &__title {
     font-size: 100;
   }
-  .container__inputs {
+  &__inputs {
     display: flex;
     justify-content: space-between;
     padding: 3% 30%;
     height: 17%;
-    .container__inputs-wrapper {
+    .container__inputs-content {
       display: flex;
       width: 40%;
-      input {
-        width: 100%;
-        font-size: 40px;
-        border: none;
-        outline: none;
-        border-bottom: 1px solid silver;
-        font-weight: 100;
-      }
-      .container__span {
-        padding: 5px 0 0 0;
-        border-bottom: 1px solid silver;
-        font-size: 30px;
-      }
+    }
+    .container__input {
+      width: 100%;
+      font-size: 40px;
+      border: none;
+      outline: none;
+      border-bottom: 1px solid silver;
+      font-weight: 100;
+    }
+    .container__symbol {
+      padding: 5px 0 0 0;
+      border-bottom: 1px solid silver;
+      font-size: 30px;
     }
   }
-  .container__wrapper {
+  &__content {
     display: flex;
     justify-content: space-between;
     padding: 0% 30%;
-    .container__btn {
+    .container__content--btn {
       width: 40%;
       border-radius: 15px;
       box-shadow: none;
@@ -39,7 +39,7 @@
       border: 0;
       padding: 10px 5px;
     }
-    .container__exchange-rate {
+    .container__content--rate {
       font-size: 30px;
       color: rgb(3, 184, 3);
     }

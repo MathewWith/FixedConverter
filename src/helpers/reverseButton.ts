@@ -1,13 +1,13 @@
-import { ReverseButton } from "src/types/types";
+import { ReverseButtonProps } from "src/types/FunctionProps";
 
-
-export const reverseButton = (props: ReverseButton): void => {
-    const { leftCurrency, 
-            rightCurrency,
-            setLeftCurrency,
-            setRightCurrency} = props;
-
-    let swap = leftCurrency;
-    setLeftCurrency(rightCurrency)
-    setRightCurrency(swap)
-}
+export const reverseButton = ({
+  leftCurrency,
+  rightCurrency,
+  setLeftCurrency,
+  setRightCurrency,
+}: ReverseButtonProps): void => {
+    
+  let swap = leftCurrency;
+  setLeftCurrency(rightCurrency);
+  setRightCurrency(swap);
+};
