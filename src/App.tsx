@@ -8,7 +8,7 @@ import {Symbol} from 'src/types/PropsOfFunctions';
 
 function App() {
   
-  const [allCurrencies, setAllCurrencies] = useState<string[]>([''])
+  const [allCurrencies, setAllCurrencies] = useState<string[]>([])
   const [leftInputValue, setLeftInputValue] = useState<number>(0)
   const [rightInputValue, setRightInputValue] = useState<number>(0)
   const [isReversed, setIsReversed] = useState<boolean>(false)
@@ -65,8 +65,7 @@ function App() {
     <div className="container">
       <h1 className='container__title'>Change money</h1>
 
-      <ListCurrencies 
-        allCurrencies={allCurrencies} 
+      <ListCurrencies allCurrencies={allCurrencies} 
         setLeftCurrency={setLeftCurrency} 
         setRightCurrency={setRightCurrency}
         leftCurrency={leftCurrency}
@@ -108,3 +107,10 @@ function App() {
 }
 
 export default App;
+
+
+
+
+
+
+
