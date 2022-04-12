@@ -1,4 +1,4 @@
-import { addSymbolToInputProps} from "src/types/FunctionProps"
+import { addSymbolToInputProps} from "src/types/PropsOfFunctions"
 
 export const addSymbolToInput = ({
     leftCurrency,

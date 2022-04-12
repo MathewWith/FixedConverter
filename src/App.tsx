@@ -4,7 +4,7 @@ import {reverseButton} from './helpers/reverseButton';
 import { getAllCurrencies, getConvertedValue, getCurrenciesSymbols, getExchangeRate } from 'src/service/CurrencyService';
 import { ListCurrencies } from 'src/components/ListCurrencies/ListCurrencies';
 import { addSymbolToInput } from './helpers/addSymbolToInput';
-import {Symbol} from 'src/types/FunctionProps';
+import {Symbol} from 'src/types/PropsOfFunctions';
 
 function App() {
   

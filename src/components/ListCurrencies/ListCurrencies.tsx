@@ -1,5 +1,5 @@
 import React from "react";
-import { ListCurrenciesProps } from "src/types/FunctionProps";
+import { ListCurrenciesProps } from "src/types/PropsOfFunctions";
 import { Select } from "../Select/Select";
 import "./ListCurrencies.scss";
 

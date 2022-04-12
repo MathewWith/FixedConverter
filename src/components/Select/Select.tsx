@@ -1,4 +1,4 @@
-import { SelectProps } from "src/types/FunctionProps";
+import { SelectProps } from "src/types/PropsOfFunctions";
 import './Select.scss'
 
 export const Select = ({allCurrencies, setCurrency, currentCurrency}: SelectProps) => {
