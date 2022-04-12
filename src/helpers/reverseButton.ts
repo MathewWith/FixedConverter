@@ -1,4 +1,4 @@
-import { ReverseButtonProps } from "src/types/service";
+import { ReverseButtonProps } from "src/types/FunctionProps";
 
 
 export const reverseButton = (props: ReverseButtonProps): void => {
