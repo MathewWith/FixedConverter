@@ -17,17 +17,13 @@ function App() {
   const [currenciesSymbols, setCurrenciesSymbols] = useState<string[]>([])
 
   useEffect(() => {
-    const setSymbols = async () => {
+    const setSymbolsAndAllCurrencies = async () => {
       const response = await getCurrenciesSymbols()
-      setCurrenciesSymbols(response)
-    }
-    setSymbols()
-
-    const setCurrencies = async () => {
       const currencies = await getAllCurrencies()
       setAllCurrencies(currencies)
+      setCurrenciesSymbols(response)
     }
-    setCurrencies()
+    setSymbolsAndAllCurrencies()
   }, [])
 
   useEffect(() => {

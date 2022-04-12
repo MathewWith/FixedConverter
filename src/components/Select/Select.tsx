@@ -1,8 +1,8 @@
-import { SelectProps } from "src/types/FunctionProps";
+import { SelectProps } from "src/types/PropsOfFunctions";
 import './Select.scss'
 
-export const Select = (props: SelectProps) => {
-    const {allCurrencies, setCurrency, currentCurrency} = props;
+export const Select = ({allCurrencies, setCurrency, currentCurrency}: SelectProps) => {
+    
     return (
         <select onChange={(e) => setCurrency(e.target.value)} value={currentCurrency} className='wrapper'>
                 {
