@@ -24,17 +24,13 @@ function App() {
   },[allCurrenciesSymbols, leftCurrency, rightCurrency])
 
   useEffect(() => {
-    const setSymbols = async () => {
+    const setSymbolsAndAllCurrencies = async () => {
       const response = await getCurrenciesSymbols()
-      setAllCurrenciesSymbols(response)
-    }
-    setSymbols()
-
-    const setCurrencies = async () => {
       const currencies = await getAllCurrencies()
       setAllCurrencies(currencies)
+      setAllCurrenciesSymbols(response)
     }
-    setCurrencies()
+    setSymbolsAndAllCurrencies()
   }, [])
 
   useEffect(() => {

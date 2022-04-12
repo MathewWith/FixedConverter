@@ -12,6 +12,6 @@ export const addSymbolToInput = ({
 
     let rightSymbols = allCurrenciesSymbols.filter((symbol) => symbol.abbreviation === rightCurrency)
 
-    setLeftSymbol(leftSymbols[0].symbol)
-    setRightSymbol(rightSymbols[0].symbol)
+    setLeftSymbol(leftSymbols[0]?.symbol)
+    setRightSymbol(rightSymbols[0]?.symbol)
 }
