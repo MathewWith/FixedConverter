@@ -20,17 +20,13 @@ function App() {
   const [rightSymbol, setRightSymbol] = useState<string|undefined>()
 
   useEffect(() => {
-    addSymbolToInput({leftCurrency, rightCurrency, allCurrenciesSymbols, setLeftSymbol, setRightSymbol})
-  },[allCurrenciesSymbols, leftCurrency, rightCurrency])
-
-  useEffect(() => {
-    const setSymbolsAndAllCurrencies = async () => {
-      const response = await getCurrenciesSymbols()
-      const currencies = await getAllCurrencies()
-      setAllCurrencies(currencies)
-      setAllCurrenciesSymbols(response)
+    const gettingData = async () => {
+      const responseOfSymbols = await getCurrenciesSymbols()
+      const responseOfCurrencies = await getAllCurrencies()
+      setAllCurrencies(responseOfCurrencies)
+      setAllCurrenciesSymbols(responseOfSymbols)
     }
-    setSymbolsAndAllCurrencies()
+    gettingData()
   }, [])
 
   useEffect(() => {
@@ -39,6 +35,7 @@ function App() {
         setExchangeRate(response)
       }
         updateExchangeRate()
+        addSymbolToInput({leftCurrency, rightCurrency, allCurrenciesSymbols, setLeftSymbol, setRightSymbol})
   },[leftCurrency ,rightCurrency])
 
   useEffect(() => {
