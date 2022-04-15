@@ -4,7 +4,7 @@ import {reverseButton} from './helpers/reverseButton';
 import { getAllCurrencies, getConvertedValue, getCurrenciesSymbols, getExchangeRate } from 'src/service/CurrencyService';
 import { ListCurrencies } from 'src/components/ListCurrencies/ListCurrencies';
 import { addSymbolToInput } from './helpers/addSymbolToInput';
-import {Symbol} from 'src/types/PropsOfFunctions';
+import {Symbol} from 'src/types/CurrencyTypes';
 
 function App() {
   
@@ -21,10 +21,10 @@ function App() {
 
   useEffect(() => {
     const gettingData = async () => {
-      const responseOfSymbols = await getCurrenciesSymbols()
-      const responseOfCurrencies = await getAllCurrencies()
-      setAllCurrencies(responseOfCurrencies)
-      setAllCurrenciesSymbols(responseOfSymbols)
+      const symbols = await getCurrenciesSymbols()
+      const currencies = await getAllCurrencies()
+      setAllCurrencies(currencies)
+      setAllCurrenciesSymbols(symbols)
     }
     gettingData()
   }, [])

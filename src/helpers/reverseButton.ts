@@ -1,5 +1,5 @@
 
-import { ReverseButtonProps } from "src/types/PropsOfFunctions";
+import { ReverseButtonProps } from "src/types/CurrencyTypes";
 
 export const reverseButton = ({
   leftCurrency,

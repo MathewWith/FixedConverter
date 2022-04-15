@@ -1,5 +1,5 @@
 import axios from "axios";
-import { Symbol } from "src/types/PropsOfFunctions";
+import { Symbol } from "src/types/CurrencyTypes";
 
 export const getCurrenciesSymbols = async (): Promise<Symbol[]> => {
   let response = await axios.get(
