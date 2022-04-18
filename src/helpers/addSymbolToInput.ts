@@ -1,5 +1,6 @@
 import { addSymbolToInputProps} from "src/types/CurrencyTypes"
 
+
 export const addSymbolToInput = ({
     leftCurrency,
     rightCurrency,
