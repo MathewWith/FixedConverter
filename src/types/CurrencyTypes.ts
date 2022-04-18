@@ -35,11 +35,3 @@ export interface SelectProps {
     setCurrency: React.Dispatch<React.SetStateAction<string>>,
     currentCurrency: string
 }
-
-// export interface addSymbolToInputProps {
-//     leftCurrency: string,
-//     rightCurrency: string,
-//     allCurrenciesSymbols: Symbol[],
-//     setLeftSymbol: React.Dispatch<React.SetStateAction<Symbol>>,
-//     setRightSymbol: React.Dispatch<React.SetStateAction<Symbol>>
-// }

@@ -4,11 +4,11 @@ import {reverseButton} from './helpers/reverseButton';
 import { getAllCurrencies, getConvertedValue, getCurrenciesSymbols, getExchangeRate } from 'src/service/CurrencyService';
 import { ListCurrencies } from 'src/components/ListCurrencies/ListCurrencies';
 import { addSymbolToInput } from './helpers/addSymbolToInput';
-import {Symbol} from 'src/types/PropsOfFunctions';
+import {Symbol} from 'src/types/CurrencyTypes';
 
 function App() {
   
-  const [allCurrencies, setAllCurrencies] = useState<string[]>([''])
+  const [allCurrencies, setAllCurrencies] = useState<string[]>([])
   const [leftInputValue, setLeftInputValue] = useState<number>(0)
   const [rightInputValue, setRightInputValue] = useState<number>(0)
   const [isReversed, setIsReversed] = useState<boolean>(false)
@@ -20,17 +20,13 @@ function App() {
   const [rightSymbol, setRightSymbol] = useState<string|undefined>()
 
   useEffect(() => {
-    addSymbolToInput({leftCurrency, rightCurrency, allCurrenciesSymbols, setLeftSymbol, setRightSymbol})
-  },[allCurrenciesSymbols, leftCurrency, rightCurrency])
-
-  useEffect(() => {
-    const setSymbolsAndAllCurrencies = async () => {
-      const response = await getCurrenciesSymbols()
+    const gettingData = async () => {
+      const symbols = await getCurrenciesSymbols()
       const currencies = await getAllCurrencies()
       setAllCurrencies(currencies)
-      setAllCurrenciesSymbols(response)
+      setAllCurrenciesSymbols(symbols)
     }
-    setSymbolsAndAllCurrencies()
+    gettingData()
   }, [])
 
   useEffect(() => {
@@ -39,6 +35,7 @@ function App() {
         setExchangeRate(response)
       }
         updateExchangeRate()
+        addSymbolToInput({leftCurrency, rightCurrency, allCurrenciesSymbols, setLeftSymbol, setRightSymbol})
   },[leftCurrency ,rightCurrency])
 
   useEffect(() => {
@@ -65,8 +62,7 @@ function App() {
     <div className="container">
       <h1 className='container__title'>Change money</h1>
 
-      <ListCurrencies 
-        allCurrencies={allCurrencies} 
+      <ListCurrencies allCurrencies={allCurrencies} 
         setLeftCurrency={setLeftCurrency} 
         setRightCurrency={setRightCurrency}
         leftCurrency={leftCurrency}
@@ -108,3 +104,10 @@ function App() {
 }
 
 export default App;
+
+
+
+
+
+
+

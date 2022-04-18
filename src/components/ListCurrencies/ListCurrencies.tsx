@@ -1,5 +1,5 @@
 import React from "react";
-import { ListCurrenciesProps } from "src/types/PropsOfFunctions";
+import { ListCurrenciesProps } from "src/types/CurrencyTypes";
 import { Select } from "../Select/Select";
 import "./ListCurrencies.scss";
 
@@ -10,7 +10,7 @@ export const ListCurrencies = ({
   leftCurrency,
   rightCurrency,
 }: ListCurrenciesProps) => {
-  
+    
     return (
     <div className="list-currencies">
       <Select
