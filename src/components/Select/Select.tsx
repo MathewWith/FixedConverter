@@ -1,20 +1,14 @@
-import { SelectProps } from "src/types/types";
+import { SelectProps } from "src/types/CurrencyTypes";
+import './Select.scss'
 
-export const Select = ({
-  allCurrencies,
-  setCurrency,
-  currentCurrency
-}: SelectProps) => {
-    
-  return (
-    <select onChange={(e) => setCurrency(e.target.value)} value={currentCurrency}>
-      {allCurrencies.map((currency: string) => {
-        return (
-          <option key={currency}>
-            {currency}
-          </option>
-        );
-      })}
-    </select>
-  );
-};
+export const Select = ({allCurrencies, setCurrency, currentCurrency}: SelectProps) => {
+    return (
+        <select onChange={(e) => setCurrency(e.target.value)} value={currentCurrency} className='wrapper'>
+                {
+                    allCurrencies.map((currency: string, key: number) => {
+                       return <option key={key} >{currency}</option>
+                    })
+                }
+        </select>
+    )
+}

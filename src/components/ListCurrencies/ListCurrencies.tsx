@@ -1,15 +1,17 @@
-import { ListCurrenciesProps } from "src/types/types";
+import React from "react";
+import { ListCurrenciesProps } from "src/types/CurrencyTypes";
 import { Select } from "../Select/Select";
+import "./ListCurrencies.scss";
 
 export const ListCurrencies = ({
   allCurrencies,
   setLeftCurrency,
   setRightCurrency,
-  rightCurrency,
   leftCurrency,
+  rightCurrency,
 }: ListCurrenciesProps) => {
-
-  return (
+    
+    return (
     <div className="list-currencies">
       <Select
         allCurrencies={allCurrencies}
@@ -24,4 +26,3 @@ export const ListCurrencies = ({
     </div>
   );
 };
-
